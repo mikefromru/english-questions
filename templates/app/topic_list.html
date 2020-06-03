@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+	{% include 'app/navbar.html' %}
+<br>
+<br>
+<br>
+	<div class="container-fluid">
+		{% for x in object_list %}
+			<!-- <a class="topics" href="{% url 'questions-topic' x.slug %}">{{ x }}</a> -->
+			<!-- <button type="button" class="topics btn btn-outline-secondary" href="{% url 'questions-topic' x.slug %}">{{ x }}</button> -->
+			<a href="{% url 'questions-topic' x.slug %}" class="topics btn btn-outline-secondary" role='button'>{{ x }}</a>
+			{% empty %}	
+				<li>No topics</li>
+		{% endfor %}
+	</div>
+	{% if is_paginated %}
+
+
+		<!-- <nav class="bottom" aria-label="..." > -->
+			<br>
+			<ul class="pagination justify-content-center">
+			{% if page_obj.has_previous %}
+			<li class="page-item">
+				<a class="page-link" tabindex="-1" aria-disabled='true' href="?page={{ page_obj.previous_page_number }}">
+	        <span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			{% else %}
+			<li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    
+			{% endif %}
+
+			{% for i in paginator.page_range %}
+			{% if page_obj.number == i %}
+
+			<li class="page-item active" aria-current="page">
+				<a class="page-link">{{ i }} <span class="sr-only">(current)</span></a>
+			</li>
+			{% else %}
+			<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+			{% endif %}
+			{% endfor %}
+
+			{% if page_obj.has_next %}
+			<li class="page-item">
+				<a class="page-link" aria-label="Next" href="?page={{ page_obj.next_page_number }}">
+	        <span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+			{% else %}
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+
+			{% endif %}
+			</ul>
+		<!-- </nav> -->
+
+	{% endif %}
+</body>
+{% endblock %}

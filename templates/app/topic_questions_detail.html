@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>English-Questions</title>
+</head>
+<body>
+	<nav class="navbar navbar-light fixed-top bg-light">
+		<div class="container-fluid">
+		  <p class="navbar-brand" href="#">
+
+		    <img id="home" onclick="goBack()" src="/static/i/keyboard_backspace-24px.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+
+		    {{ topic }}
+		  </p>
+		</div>
+</nav>
+	<br>
+	<br>
+	<br>
+	<div class="container" id="questions">
+		{% for x in questions %}
+			<span id="counter">{{ forloop.counter }}.</span> {{ x.name }} ?<br>
+		{% endfor %}
+	</div>
+	<script type="text/javascript">
+		function goBack() {
+			window.history.back()
+		}
+	</script>
+</body>
+
+</html>
+{% endblock %}

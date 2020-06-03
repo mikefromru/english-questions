@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light fixed-top bg-light">
+  <a class="navbar-brand" href="{% url 'list-topic' %}">
+    <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Topics
+  </a>
+  <!-- <form class="form-inline my-2 my-lg-0 d-sm-none d-md-block"> -->
+  <form type='get' action="{% url 'search-topic' %}" class="form-inline my-2 my-lg-0 d-none d-sm-block">
+    <input id='q' name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>

@@ -1,0 +1,20 @@
+body {
+	font-size: 18px;
+}
+#home {cursor: pointer;}
+.topics {
+	/*display: inline-block;*/
+	/*display: inline;*/
+	/*color: black;*/
+	margin: 5px;
+	/*padding: 7px;*/
+}
+
+#counter {
+	/*color: #007BFF;*/
+	padding-right: 10px;
+}
+
+.questions {
+	/*margin-bottom: 30px;*/
+}

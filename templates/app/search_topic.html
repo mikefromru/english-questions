@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+	{% include 'app/search_navbar.html' %}
+<br>
+<br>
+<br>
+	<div class="container-fluid">
+		{% for x in topic %}
+			<a href="{% url 'questions-topic' x.slug %}" class="topics btn btn-outline-secondary" role='button'>{{ x }}</a>
+			{% empty %}	
+				<center><p>No Found</p></center>
+		{% endfor %}
+	</div>
+</body>
+{% endblock %}
